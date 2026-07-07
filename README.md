@@ -10,15 +10,13 @@ Welcome to my professional portfolio! I'm building open-source tools and applica
 
 ---
 
-## 📈 GitHub Statistics
+## 📈 Quick Stats
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Ba7athproject&theme=dark&show_icons=true&hide_title=false&count_private=true&include_all_commits=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Ba7athproject&theme=dark&layout=compact&langs_count=8)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Ba7athproject&theme=dark)
+![Profile Views](https://komarev.com/ghpvc/?username=Ba7athproject&label=Profile%20Views&color=blue&style=flat)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen?style=flat)
 
 </div>
 
