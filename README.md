@@ -52,7 +52,13 @@ Welcome to my professional portfolio! I'm building open-source tools and applica
 - 🚀 **DevOps** - Infrastructure automation and deployment
 
 ---
+## 🛠️ Roadmap & Contributions
+Nous cherchons activement des contributeurs (journalistes, développeurs) sur plusieurs chantiers :
+- [🐛 Signaler un bug ou une source morte](https://github.com/Ba7athproject/Ba7athproject/issues/new)
+- [💡 Proposer un nouvel outil ou une intégration](https://github.com/Ba7athproject/Ba7athproject/issues)
 
+Consultez notre [liste des requêtes ouvertes](https://github.com/Ba7athproject/Ba7athproject/issues) pour participer.
+---
 ## 📦 Project Features
 
 ✨ Open-source and community-driven  
