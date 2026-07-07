@@ -1,0 +1,49 @@
+name: Security Scanner (Anti-Malware)
+
+# Le workflow s'active à chaque création ou modification de commentaire
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  scan-and-delete:
+    runs-on: ubuntu-latest
+    # Définition stricte des permissions nécessaires (écriture sur les issues)
+    permissions:
+      issues: write
+      pull-requests: write
+      
+    steps:
+      - name: 🛡️ Analyse et suppression des archives suspectes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // 1. Récupération du contenu du commentaire (en minuscules pour la recherche)
+            const commentBody = context.payload.comment.body.toLowerCase();
+            
+            // 2. Expressions régulières ciblant les formats d'archives risqués
+            const hasArchive = /\.zip|\.rar|\.7z|\.tar\.gz|\.gz/i.test(commentBody);
+            
+            // 3. Vérification que l'auteur n'est pas un bot (pour éviter les boucles infinies)
+            const isBot = context.payload.comment.user.type === 'Bot';
+            
+            if (hasArchive && !isBot) {
+              console.log(`⚠️ Archive suspecte détectée dans le commentaire ID: ${context.payload.comment.id}. Suppression en cours...`);
+              
+              // 4. Suppression immédiate du commentaire malveillant
+              await github.rest.issues.deleteComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: context.payload.comment.id
+              });
+              
+              // 5. Publication d'un message d'avertissement pédagogique
+              const warningMessage = `> 🛡️ **Alerte de Sécurité Ba7ath :**\n> \n> Un commentaire contenant un fichier d'archive potentiellement dangereux (\`.zip\`, \`.rar\`, etc.) a été **automatiquement supprimé**.\n> \n> Dans le cadre de nos standards de sécurité et d'hygiène numérique, nous n'acceptons jamais de correctifs ou de fichiers via des archives compressées. Toute contribution doit faire l'objet d'une *Pull Request* transparente.`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: warningMessage
+              });
+            }
