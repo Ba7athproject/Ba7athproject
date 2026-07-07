@@ -1,7 +1,7 @@
 # 🔍 Ba7ath Project
 
 **OSINT | Data Journalism | Journalism Open-Source Tools | ML | Full-Stack Development**
-
+[![Issues ouvertes](https://img.shields.io/github/issues/Ba7athproject/Ba7athproject)](https://github.com/Ba7athproject/Ba7athproject/issues)
 ---
 
 ## 📊 Project Overview
